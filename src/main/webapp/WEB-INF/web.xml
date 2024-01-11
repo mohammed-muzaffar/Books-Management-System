@@ -5,27 +5,25 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <!-- 从类路径下加载spring配置文件，classpath关键字特指类路径下的加载 -->
+    <!-- Load the spring configuration file from the classpath, the classpath keyword specifically refers to loading under the classpath -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:book-context.xml</param-value>
     </context-param>
-    <!--.负责启动spring容器的监听器，它将引用1处的上下文参数获得spring配置文件的地址 -->
+   <!--. Responsible for starting the listener of the spring container. It will refer to the context parameter at 1 to obtain the address of the spring configuration file -->
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-    <!-- spring MVC 的主控servlet -->
-    <servlet>
+<!-- spring MVC main control servlet -->    <servlet>
         <servlet-name>book</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <!--spring MVC 的主控servlet 的映射URL -->
-    <servlet-mapping>
+<!--The mapping URL of the main control servlet of spring MVC -->    <servlet-mapping>
         <servlet-name>book</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
